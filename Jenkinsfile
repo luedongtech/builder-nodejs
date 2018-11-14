@@ -3,7 +3,7 @@ pipeline {
         label "jenkins-jx-base"
     }
     environment {
-        ORG         = 'jenkinsxio'
+        ORG         = 'luedongtech'
         APP_NAME    = 'builder-nodejs'
     }
     stages {
@@ -13,8 +13,8 @@ pipeline {
             }
             steps {
                 container('jx-base') {
-                    sh "docker build -t docker.io/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER ."
-                    sh "docker push docker.io/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
+                    sh "docker build -t registry-vpc.cn-hangzhou.aliyuncs.com/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER ."
+                    sh "docker push registry-vpc.cn-hangzhou.aliyuncs.com/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
                 }
             }
         }
