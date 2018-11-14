@@ -5,6 +5,7 @@ pipeline {
     environment {
         ORG         = 'luedongtech'
         APP_NAME    = 'builder-nodejs'
+        REGISTRY	= 'registry-vpc.cn-hangzhou.aliyuncs.com'
     }
     stages {
         stage('CI Build and push snapshot') {
@@ -13,8 +14,8 @@ pipeline {
             }
             steps {
                 container('jx-base') {
-                    sh "docker build -t registry-vpc.cn-hangzhou.aliyuncs.com/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER ."
-                    sh "docker push registry-vpc.cn-hangzhou.aliyuncs.com/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
+                    sh "docker build -t $REGISTRY/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER ."
+                    sh "docker push $REGISTRY/$ORG/$APP_NAME:SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
                 }
             }
         }
