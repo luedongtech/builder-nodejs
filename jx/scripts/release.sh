@@ -12,7 +12,7 @@ echo "Releasing version to ${VERSION}"
 
 docker build -t $REGISTRY/$ORG/$APP_NAME:${VERSION} .
 docker push $REGISTRY/$ORG/$APP_NAME:${VERSION}
-docker tag $REGISTRY/$ORG/$APP_NAME:${VERSION} docker.io/$ORG/$APP_NAME:latest
+docker tag $REGISTRY/$ORG/$APP_NAME:${VERSION} $REGISTRY/$ORG/$APP_NAME:latest
 docker push $REGISTRY/$ORG/$APP_NAME
 
 #jx step tag --version ${VERSION}
