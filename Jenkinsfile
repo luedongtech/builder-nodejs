@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
         ORG         = 'luedongtech'
-        APP_NAME    = 'builder-nodejs'
+        APP_NAME    = 'builder-nodejs6'
         REGISTRY	= 'registry-vpc.cn-hangzhou.aliyuncs.com'
     }
     stages {
